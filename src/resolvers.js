@@ -14,7 +14,13 @@ const resolvers = {
     module: (_, { id }, { dataSources }) => {
       return dataSources.trackAPI.getModule(id);
     },
+    durationInSeconds: ({ length }) => length,
   },
+
+  Module: {
+    durationInSeconds: ({ length }) => length,
+  },
+
   Mutation: {
     // increments a track's numberOfViews property
     incrementTrackViews: async (_, { id }, { dataSources }) => {
